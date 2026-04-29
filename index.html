@@ -224,6 +224,41 @@
             .contact-grid img {
                 max-width: 280px;
             }
+
+
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+            }
+
+            .contact-grid .contact-info {
+                order: -1;
+                grid-column: 1 / -1;
+                /* full width on top */
+            }
+
+            .contact-grid img:first-of-type {
+                order: 1;
+            }
+
+            .contact-grid img:last-of-type {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                /* single column on phone */
+            }
+
+            .contact-grid img {
+                max-width: 280px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
