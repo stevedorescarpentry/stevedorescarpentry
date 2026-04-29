@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stevedores Carpentry, LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: white;
+            color: #000;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            padding: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        /* ── TICKER ── */
+        .ticker-wrap {
+            width: calc(100% + 8rem);
+            margin-left: -4rem;
+            overflow: hidden;
+            padding: 0.75rem 0;
+            background: #fff;
+        }
+
+        .ticker {
+            display: flex;
+            width: max-content;
+        }
+
+        .ticker-logo {
+            animation: scroll-logo 60s linear infinite reverse;
+        }
+
+        .ticker-logo-item {
+            padding: 0 2rem;
+            flex-shrink: 0;
+        }
+
+        .ticker-logo-item img {
+            height: 75px;
+            width: auto;
+            display: block;
+        }
+
+        @keyframes scroll-logo {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── DIVIDERS ── */
+        .divider2 {
+            border-top: 1px solid #000;
+        }
+
+        .divider2::after {
+            content: "";
+            display: block;
+            border-top: 3px solid #000;
+            margin-top: 8px;
+        }
+
+        /* ── TITLE BLOCK ── */
+        .title-block {
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: -0.01em;
+            padding-bottom: 0.4rem;
+        }
+
+        .title-sub1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .title-sub2 {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ── SECTION HEADERS ── */
+        .section-header {
+            text-align: center;
+            padding: 2rem 0 0.5rem;
+        }
+
+        .section-header .header {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: -0.01em;
+        }
+
+        .section-header .header-sub {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.4rem;
+        }
+
+        /* ── PHOTOS ── */
+        .photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .photo-slot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── SERVICES ── */
+        .services {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 3rem;
+        }
+
+        .services ul {
+            margin-top: 1.5rem;
+            list-style: disc;
+            line-height: 2.4;
+            font-size: 1.1rem;
+            column-count: 3;
+            column-gap: 4rem;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            padding-top: 0;
+            padding-bottom: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            gap: 3rem;
+            align-items: center;
+            justify-items: center;
+            margin-top: 2rem;
+        }
+
+        .contact-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .img-border {
+            border: 4px solid black;
+        }
+
+        .contact-info {
+            width: 100%;
+            text-align: left;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 2.2;
+        }
+
+        .label {
+            font-weight: 600;
+        }
+
+        a { color: black; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 680px) {
+            body { padding: 1.5rem; }
+
+            .ticker-wrap {
+                width: calc(100% + 3rem);
+                margin-left: -1.5rem;
+            }
+
+            .title { font-size: 2.5rem; }
+
+            .photos { grid-template-columns: 1fr; }
+
+            .services ul { column-count: 1; }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid img {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TITLE -->
+    <div class="title-block">
+        <p class="title">Stevedores Carpentry, LLC</p>
+        <p class="title-sub1">Made in the Shade — Richmond, VA</p>
+        <p class="title-sub2">Class A Contractor</p>
+        <p class="title-sub2">VA License No. 2705199654</p>
+    </div>
+
+    <!-- LOGO TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker ticker-logo">
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <!-- duplicate set -->
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+            <span class="ticker-logo-item"><img src="Photos/logo_crop.svg" alt="Stevedores Carpentry"></span>
+        </div>
+    </div>
+
+    <div class="divider2"></div>
+
+    <!-- PHOTOS -->
+    <div class="photos">
+        <div class="photo-slot"><img src="photos/basement_shelves1.jpg" alt="Basement shelves"></div>
+        <div class="photo-slot"><img src="photos/brook_floor_framing1.jpeg" alt="Floor framing"></div>
+        <div class="photo-slot"><img src="photos/deck2.jpeg" alt="Deck build"></div>
+        <div class="photo-slot"><img src="photos/Gray_kitchen2.JPG" alt="Kitchen remodel"></div>
+        <div class="photo-slot"><img src="photos/maple_shelves3.jpeg" alt="Maple shelves"></div>
+        <div class="photo-slot"><img src="photos/shower1.jpeg" alt="Shower build"></div>
+    </div>
+
+    <div class="divider2"></div>
+
+    <!-- SERVICES -->
+    <div class="section-header">
+        <p class="header">Services</p>
+        <p class="header-sub">Our goal is to make your home beautiful and functional.</p>
+    </div>
+
+    <div class="services">
+        <ul>
+            <li>Framing &amp; Construction</li>
+            <li>Decks &amp; Outdoor Structures</li>
+            <li>Finish Carpentry</li>
+            <li>Kitchen &amp; Bath Remodels</li>
+            <li>Doors &amp; Windows</li>
+            <li>Custom Woodworking</li>
+            <li>Fixtures, Outlets &amp; Switches</li>
+            <li>Handyman &amp; Repairs</li>
+            <li>Design &amp; Modeling</li>
+        </ul>
+    </div>
+
+    <div class="divider2"></div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+        <div class="section-header">
+            <p class="header">Contact Us</p>
+            <p class="header-sub">Call us for a free estimate.</p>
+        </div>
+        <div class="contact-grid">
+            <div><img src="Photos/cal_headshot2.png" class="img-border" alt="Cal"></div>
+            <div class="contact-info">
+                <p><span class="label">Cal: </span><a href="tel:18042156928">(804) 215-6928</a></p>
+                <p><span class="label">Dan: </span><a href="tel:17039395147">(703) 939-5147</a></p>
+                <p><span class="label">Email: </span><a href="mailto:stevedorescarpentry@gmail.com">StevedoresCarpentry@gmail.com</a></p>
+                <p><span class="label">IG: </span><a href="https://www.instagram.com/stevedorescarpentry/">@StevedoresCarpentry</a></p>
+                <p><span class="label">FB: </span><a href="https://www.facebook.com/StevedoresCarpentry/">Stevedores Carpentry</a></p>
+            </div>
+            <div><img src="Photos/dan_headshot1.png" class="img-border" alt="Dan"></div>
+        </div>
+    </div>
+
+</body>
+</html>
