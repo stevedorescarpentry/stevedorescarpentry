@@ -118,12 +118,17 @@
         }
 
         /* ── PHOTOS ── */
+
         .photos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+            position: relative;
+            /* required for absolute positioning of items */
+            margin-bottom: 1.5rem;
+        }
+
+        .photo-slot {
+            position: absolute;
+            width: calc(50% - 0.75rem);
+            /* two columns with gap */
         }
 
         .photo-slot img {
@@ -263,14 +268,48 @@
     </style>
 </head>
 
+
+
+<script>
+    function masonry() {
+        const container = document.querySelector('.photos');
+        const items = document.querySelectorAll('.photo-slot');
+        const gap = 24; // match your gap in px (1.5rem = 24px)
+        const columns = window.innerWidth < 680 ? 1 : 2;
+        const colWidth = (container.offsetWidth - (gap * (columns - 1))) / columns;
+        const colHeights = new Array(columns).fill(0);
+
+        items.forEach(item => {
+            // find the shortest column
+            const shortest = colHeights.indexOf(Math.min(...colHeights));
+
+            // position the item
+            item.style.width = colWidth + 'px';
+            item.style.left = shortest * (colWidth + gap) + 'px';
+            item.style.top = colHeights[shortest] + 'px';
+
+            // update column height
+            colHeights[shortest] += item.offsetHeight + gap;
+        });
+
+        // set container height to tallest column
+        container.style.height = Math.max(...colHeights) + 'px';
+    }
+
+    // run on load and resize
+    window.addEventListener('load', masonry);
+    window.addEventListener('resize', masonry);
+</script>
+
 <body>
 
     <!-- TITLE -->
     <div class="title-block">
         <p class="title">Stevedores Carpentry, LLC</p>
         <p class="title-sub1">Made in the Shade — Richmond, VA</p>
-        <p class="title-sub2">Class A Contractor</p>
+        <p class="title-sub2">Licensed & Insured · Class A Contractor</p>
         <p class="title-sub2">VA License No. 2705199654</p>
+        <a href="#contact" style="color: blue;">Contact Us</a>
     </div>
 
     <!-- LOGO TICKER -->
@@ -308,12 +347,16 @@
 
     <!-- PHOTOS -->
     <div class="photos">
+        <div class="photo-slot"><img src="photos/maple_shelves3.jpg" alt="Maple shelves"></div>
+        <div class="photo-slot"><img src="photos/maple_shelves1.jpg" alt="Maple shelves"></div>
+        <div class="photo-slot"><img src="photos/maple_shelves4.jpg" alt="Maple shelves"></div>
+        <div class="photo-slot"><img src="photos/shoe_cubby1.JPG" alt="Maple shelves"></div>
         <div class="photo-slot"><img src="photos/basement_shelves1.jpg" alt="Basement shelves"></div>
         <div class="photo-slot"><img src="photos/brook_floor_framing1.jpg" alt="Floor framing"></div>
         <div class="photo-slot"><img src="photos/deck2.jpg" alt="Deck build"></div>
-        <div class="photo-slot"><img src="photos/gray_kitchen2.jpg" alt="Kitchen remodel"></div>
-        <div class="photo-slot"><img src="photos/maple_shelves3.jpg" alt="Maple shelves"></div>
+        <div class="photo-slot"><img src="photos/gray_kitchen1.jpg" alt="Kitchen remodel"></div>
         <div class="photo-slot"><img src="photos/shower1.jpg" alt="Shower build"></div>
+        <div class="photo-slot"><img src="photos/gray_kitchen_counter1.JPG" alt="Kitchen remodel"></div>
     </div>
 
     <div class="divider2"></div>
@@ -341,7 +384,7 @@
     <div class="divider2"></div>
 
     <!-- CONTACT -->
-    <div class="contact-section">
+    <div id=contact class="contact-section">
         <div class="section-header">
             <p class="header">Contact Us</p>
             <p class="header-sub">Call us for a free estimate.</p>
